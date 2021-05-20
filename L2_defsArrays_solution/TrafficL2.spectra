@@ -1,0 +1,18 @@
+spec TrafficL2
+
+sys boolean greenA;
+sys boolean greenB;
+
+env boolean carA;
+env boolean carB;
+
+define carWaiting := carA & !greenA | carB & !greenB;
+
+asm ini carA & !carB;
+
+asm alwEv carA;
+asm alwEv carB;
+
+gar ini !greenA & !greenB;
+gar alw !(greenA & greenB);
+gar alwEv !carWaiting;

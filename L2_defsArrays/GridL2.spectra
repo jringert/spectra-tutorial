@@ -1,0 +1,32 @@
+spec GridL2
+
+type Coord = Int(0..20);
+env Coord[2] rob;
+
+predicate same (Coord[2] a, Coord[2] b):
+ a[1]=a[1] & a[0]=a[0];
+
+sys Move moveRob;
+sys Move moveDrone;
+
+type Move = {UP, DOWN, LEFT, RIGHT, STAY};
+
+define coordSum := rob[0] + rob[1];
+
+predicate fix (Coord c):
+ c=next(c);
+
+asm ini rob[0]=0 & rob[1]=0;
+asm alw moveRob=UP implies next(rob[1])=rob[1]-1;
+ 
+gar alw (rob[0]=0 implies moveRob!=LEFT) & 
+		(rob[0]=4 implies moveRob!=RIGHT) &
+		(rob[1]=0 implies moveRob!=UP) & 
+		(rob[1]=4 implies moveRob!=DOWN);
+
+gar alw moveRob=STAY -> fix(rob[0]) & fix(rob[1]);
+
+gar alw coordSum < 7;
+
+// Extend specification GridL2.spectra with the following predicate
+// invMove(Move a, Move b) to assert that two parameters of type Move are inverse to each other, e.g., UP and DOWN or LEFT and RIGHT.

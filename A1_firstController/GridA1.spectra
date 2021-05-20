@@ -1,0 +1,14 @@
+spec GridL2
+
+env Int(0..20) robX;
+env Int(0..20) robY;
+
+sys {UP, DOWN, LEFT, RIGHT, STAY} move;
+
+asm ini robX=0 & robY=0;
+asm alw move=UP implies next(robY)=robY-1;
+
+gar alw (robX=0 implies move!=LEFT) & 
+		(robX=4 implies move!=RIGHT) &
+		(robY=0 implies move!=UP) & 
+		(robY=4 implies move!=DOWN);
