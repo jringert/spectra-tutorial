@@ -1,0 +1,23 @@
+import "DwyerPatterns.spectra"
+
+spec TrafficL3
+
+sys boolean greenA;
+sys boolean greenB;
+
+env boolean carA;
+env boolean carB;
+
+gar alw !(greenA & greenB);
+
+gar pRespondsToS(carA, greenA);
+gar pRespondsToS(carB, greenB);
+
+asm alwEv ONCE (HISTORICALLY (carA));
+
+gar alw greenA -> PREV(greenB);
+
+// Extend specification TrafficA3.spectra 
+// Add an assumption that carA is always eventually followed by carB (use the pattern pRespondsToS).
+
+asm pRespondsToS(carA, carB);
