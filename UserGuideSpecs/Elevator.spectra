@@ -1,0 +1,30 @@
+import "DwyerPatterns.spectra"
+ 
+spec Elevator
+ 
+type Floors = Int(0..10);
+env Floors elevatorLocation;
+env Floors request;
+sys {UP, DOWN} command;
+ 
+define
+  requestedUp := request > elevatorLocation;
+  requestedDown := request < elevatorLocation;
+  openRequest := request != elevatorLocation;
+ 
+// maintain requests while not answered
+asm alw elevatorLocation != request -> next(request) = request;
+ 
+// instantiate response pattern for eventually reaching the 
+// requested floor
+asm pRespondsToS(requestedUp & command = UP, 
+                           elevatorLocation = request);
+asm pRespondsToS(requestedDown & command = DOWN, 
+                           elevatorLocation = request);
+ 
+asm moveRightDirection:
+  alw (command=UP -> next(elevatorLocation) >= elevatorLocation) &
+	(command=DOWN -> next(elevatorLocation) <= elevatorLocation);
+    	
+gar eventuallyHandleOpenRequests:
+  pRespondsToS(openRequest, request=elevatorLocation);

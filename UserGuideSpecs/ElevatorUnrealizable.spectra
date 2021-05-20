@@ -1,0 +1,22 @@
+import "DwyerPatterns.spectra"
+ 
+spec ElevatorUnrealizable
+ 
+type Floors = Int(0..3);
+sys Floors elevatorLocation;
+env Floors request;
+ 
+gar startOnGroundFloor:
+  elevatorLocation=0;
+ 
+gar moveOneFloorAtATime:
+  alw (next(elevatorLocation) = elevatorLocation+1) | 
+	(next(elevatorLocation) = elevatorLocation-1);
+    	
+gar eventuallyHandleOpenRequests:
+  pRespondsToS(request != elevatorLocation,
+                             request=elevatorLocation);
+
+// assumption to fix unrealizability
+//asm maintainRequestsIfNotAnswered:
+//  alw elevatorLocation != request -> next(request) = request;

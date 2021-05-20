@@ -1,0 +1,16 @@
+import "DwyerPatterns.spectra"
+ 
+spec Docking
+ 
+env boolean dockRequest;
+sys boolean ready;
+sys boolean docking;
+ 
+asm alw next(dockRequest) -> ONCE(ready);
+ 
+// stay ready if seen dockRequest since ready
+gar alw (dockRequest SINCE ready) -> next(ready);
+ 
+gar alwEv ready;
+ 
+gar pRespondsToS(dockRequest, docking);

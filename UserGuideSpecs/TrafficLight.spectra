@@ -1,0 +1,22 @@
+spec TrafficLight
+ 
+env boolean carMain;
+env boolean carSide;
+sys boolean goMain;
+sys boolean goSide;
+ 
+asm alwEv carSide;
+asm alwEv carMain;
+ 
+gar alw !(goMain & goSide);
+gar alwEv carSide & goSide;
+gar alwEv carMain & goMain;
+ 
+weight -1
+  carMain & !goMain | carSide & !goSide;
+weight 1
+  carMain & goMain | carSide & goSide;
+weight -2
+  carMain & !goMain;
+weight 3
+  carMain & goMain;

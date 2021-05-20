@@ -1,0 +1,17 @@
+spec NonWellSep
+ 
+env boolean atStation;
+env boolean cargo;
+sys {STOP, FWD, BWD} mot;
+sys {LIFT, DROP} lift;
+ 
+asm findStat: // always possible to find a station
+  alwEv (atStation);
+asm samePos: // same station position when stopped
+  alw (mot=STOP -> next(atStation)=atStation);
+asm liftCargo: // lifting clears sensor
+  alw (lift=LIFT -> next(!cargo));
+asm dropCargo: // dropping senses cargo
+  alw (lift=DROP -> next(cargo));
+asm clearCargo: // backing up clears cargo
+  alw (mot=BWD -> next(!cargo));

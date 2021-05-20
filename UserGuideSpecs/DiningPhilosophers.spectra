@@ -1,0 +1,42 @@
+import "DwyerPatterns.spectra"
+
+spec DiningPhilosophers    
+
+type State={FREE, LEFT, RIGHT};
+sys State[5] chopsticks;
+env boolean[5] eatRequest;
+
+// Initially there are no requests
+asm initialNoRequests:
+    forall i in Int(0..4). !eatRequest[i];
+
+// Initially the chopsticks are not taken from either side
+gar initialChopsticksFree:
+    forall i in Int(0..4). chopsticks[i]=FREE;
+
+// Eating philosopher stops requesting for chopsticks
+asm eatingDoesntRequest:
+    alw forall i in Int(0..4). (chopsticks[i]=RIGHT & chopsticks[(i+1)%5]=LEFT) -> next(!eatRequest[i]);
+
+// Keep requesting if one of the chopsticks is taken by neighbor
+asm keepRequesting:
+    alw forall i in Int(0..4). (eatRequest[i] & (chopsticks[i]=LEFT | chopsticks[(i+1)%5]=RIGHT)) -> next(eatRequest[i]);
+
+// Right philosopher gets left chopstick once freed
+gar getLeftChopstick:
+    alw forall i in Int(0..4). (eatRequest[i] & chopsticks[i]=FREE) -> next(chopsticks[i]=RIGHT);
+
+// Left philosopher gets right chopstick once freed
+gar getRightChopstick:
+    alw forall i in Int(0..4). (eatRequest[i] & chopsticks[(i+1)%5]=FREE) -> next(chopsticks[(i+1)%5]=LEFT);
+
+// Each philosopher must eat infinitely often
+gar pRespondsToS(eatRequest[0], chopsticks[0]=RIGHT & chopsticks[1]=LEFT);
+	
+gar pRespondsToS(eatRequest[1], chopsticks[1]=RIGHT & chopsticks[2]=LEFT);
+	
+gar pRespondsToS(eatRequest[2], chopsticks[2]=RIGHT & chopsticks[3]=LEFT);
+
+gar pRespondsToS(eatRequest[3], chopsticks[3]=RIGHT & chopsticks[4]=LEFT);
+	
+gar pRespondsToS(eatRequest[4], chopsticks[4]=RIGHT & chopsticks[0]=LEFT);

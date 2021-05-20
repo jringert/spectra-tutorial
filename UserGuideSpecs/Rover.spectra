@@ -1,0 +1,30 @@
+spec Rover
+ 
+env boolean gravityDetected; // whether sensors detect gravity
+env boolean found; // whether direction was found after seek
+sys Int(0..7) speed; // the speed set by the system
+sys {SEEK, MEASURE, IDLE} mode; // current system mode
+ 
+asm inBeginningNoGravity:
+  gravityDetected = false;
+// once gravity is detected it does not go away
+asm
+  alw gravityDetected -> next(gravityDetected);
+asm
+  eventuallyDetectGravity: alwEv gravityDetected;
+ 
+gar mode = IDLE; // start in IDLE mode
+gar // if no gravity then no speed and be IDLE
+  alw gravityDetected = false ->
+       	next(speed = 0) & next(mode) = IDLE;
+gar alw next(mode)=SEEK -> next(speed) != 0;
+gar doSomethingUseful:
+  alwEv mode != IDLE;
+ 
+/** monitor whether system is expecting finding after SEEK */
+monitor boolean expectFinding {
+  !expectFinding;
+  alw next(expectFinding) = (mode=SEEK | expectFinding & !found); 
+}
+ 
+asm alwEv !expectFinding;

@@ -1,0 +1,20 @@
+spec Blink5
+ 
+env boolean atStation;
+sys boolean light;
+ 
+define blink := next(light)!=light;
+ 
+counter blinks(0..5) {
+  	// initially no blinks
+  	blinks=0;
+  	// blinking is turning light on when it was off
+  	inc: atStation & blink;
+  	// reset counter when not at station
+  	reset: !atStation;
+  	// blink exactly 5 times
+  	overflow: false;
+}
+ 
+// if we are not blinking do blink
+gar alw atStation & blinks < 5 -> blink;
