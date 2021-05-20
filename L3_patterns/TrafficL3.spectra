@@ -10,8 +10,8 @@ env boolean carB;
 
 gar alw !(greenA & greenB);
 
-gar sRespondsToP(carA, greenA);
-gar sRespondsToP(carB, greenB);
+gar pRespondsToS(carA, greenA);
+gar pRespondsToS(carB, greenB);
 
 asm alwEv ONCE (HISTORICALLY (carA));
 

@@ -491,29 +491,30 @@ pattern pattern25(q, p, r, s) {
 
 
 /**
- *<p> 
- * <b>Kind:</b> Response: s responds to p<br>
+ *<p>
+ * <b>Kind:</b> Response: p responds to s<br>
  * <b>Scope:</b> Globally<br>
- * <b>LTL:</b> G (p -> F s)
+ * <b>LTL:</b> alw (s -> F p)
  * </p>
- * @param p triggers the response
- * @param s (is the response)
+ * @param s triggers the response
+ * @param p (is the response)
  */
-pattern sRespondsToP(p, s) {
+pattern pRespondsToS(s, p) {
   var { S0, S1} state;
-
-  -- initial assignments: initial state
-  state=S0;
-
-  -- safety this and next state
-  alw ((state=S0 & ((!p) | (p & s)) & next(state=S0)) |
-  (state=S0 & (p & !s) & next(state=S1)) |
-  (state=S1 & (s) & next(state=S0)) |
-  (state=S1 & (!s) & next(state=S1)));
-
-  -- equivalence of satisfaction
+  
+  // initial assignments: initial state
+  ini state=S0;
+  
+  // safety this and next state
+  alw ((state=S0 & ((!s) | (s & p)) & next(state=S0)) |
+  (state=S0 & (s & !p) & next(state=S1)) |
+  (state=S1 & (p) & next(state=S0)) |
+  (state=S1 & (!p) & next(state=S1)));
+  
+  // equivalence of satisfaction
   alwEv (state=S0);
 }
+
 
 pattern pattern27(r, p, s) {
   var { S0, S1, S2, S3} state;
