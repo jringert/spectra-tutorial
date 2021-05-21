@@ -1,0 +1,14 @@
+spec TrafficE2
+
+env boolean carA;
+env boolean carB;
+
+sys boolean greenA;
+sys boolean greenB;
+
+asm alwEv carA;
+asm alwEv carB;
+
+gar alw !(greenA & greenB);
+gar alwEv greenA;
+gar alwEv greenB;
