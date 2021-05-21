@@ -29,9 +29,15 @@ public class TrafficSimulatorCmd {
 			line = in.nextLine();
 			boolean carB = !"n".equals(line);
 			
+			System.out.println("Do we have an emergency? (Y/n)");
+			line = in.nextLine();
+			boolean emergency = !"n".equals(line);
+			
 			// send inputs to controller
 			inputs.put("carA", Boolean.toString(carA));
 			inputs.put("carB", Boolean.toString(carB));
+			inputs.put("emergency", Boolean.toString(emergency));
+			
 			System.out.println(inputs);
 			
 			// execute controller
