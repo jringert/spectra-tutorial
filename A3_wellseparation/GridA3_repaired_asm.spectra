@@ -1,0 +1,24 @@
+spec GridA3
+
+type Coord = Int(0..5);
+env Coord[2] rob;
+
+sys {UP, DOWN, LEFT, RIGHT, STAY} move;
+
+define p1 := rob[0]=0 & rob[1]=0;
+define p2 := rob[0]=5 & rob[1]=5;
+
+asm alw move=UP implies minusOne(rob[1]) & fix(rob[0]);
+asm alw move=DOWN implies plusOne(rob[1]) & fix(rob[0]);
+asm alw move=LEFT implies minusOne(rob[0]) & fix(rob[1]);
+asm alw move=RIGHT implies plusOne(rob[0]) & fix(rob[1]);
+
+predicate plusOne (Coord c):
+ c + 1 = next (c) | (c = 5 & next(c)=c);
+predicate minusOne (Coord c):
+ c -1 = next (c) | (c = 0 & next(c)=c);
+predicate fix (Coord c):
+ next(c)=c;
+
+gar alw p1 -> next(p2);
+gar alwEv p1;

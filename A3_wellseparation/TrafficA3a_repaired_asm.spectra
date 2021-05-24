@@ -1,0 +1,15 @@
+spec TrafficA3
+
+sys boolean greenA;
+sys boolean greenB;
+
+
+env boolean carA;
+env boolean carB;
+
+asm alw carA & !greenA -> next(carA);
+asm alw carB & !greenB -> next(carB);
+
+asm alwEv !(carA & carB) | (!greenA & !greenB);
+
+gar alw !(greenA & greenB);
