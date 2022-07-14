@@ -1,0 +1,18 @@
+spec TrafficL2a
+
+sys boolean greenA;
+sys boolean greenB;
+
+env boolean carA;
+env boolean carB;
+
+asm ini carA & !carB;
+
+asm alwEv carA & carB;
+
+gar ini !greenA & !greenB;
+gar alw !(greenA & greenB);
+gar alw !carA -> !greenA;
+gar alw !carB -> !greenB;
+
+gar alwEv greenA & greenB;

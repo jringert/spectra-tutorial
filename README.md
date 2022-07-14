@@ -20,3 +20,5 @@ We suggest going through the modules in the following order (order of the playli
 * [A3] Non-well-separation [folder](A3_wellseparation)
 * [E3] Advanced step-by-step simulation [folder](E3_simulation_advanced)
 
+* [D1] Working with Spectra abstract syntax
+* [D2] Working with counter-strategies API
