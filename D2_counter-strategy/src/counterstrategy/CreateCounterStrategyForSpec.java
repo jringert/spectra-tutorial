@@ -1,18 +1,12 @@
 package counterstrategy;
 
-import java.util.LinkedHashSet;
-import java.util.Set;
-import java.util.Stack;
-
 import tau.smlab.syntech.bddgenerator.BDDGenerator;
 import tau.smlab.syntech.gameinput.model.GameInput;
 import tau.smlab.syntech.gameinputtrans.TranslationProvider;
 import tau.smlab.syntech.gamemodel.GameModel;
 import tau.smlab.syntech.games.controller.enumerate.ConcreteControllerConstruction;
 import tau.smlab.syntech.games.controller.enumerate.EnumStrategyI;
-import tau.smlab.syntech.games.controller.enumerate.StateI;
 import tau.smlab.syntech.games.controller.enumerate.printers.MAAMinimizeAutomatonPrinter;
-import tau.smlab.syntech.games.controller.enumerate.printers.SimpleTextPrinter;
 import tau.smlab.syntech.games.rabin.RabinConcreteControllerConstruction;
 import tau.smlab.syntech.games.rabin.RabinGame;
 import tau.smlab.syntech.jtlv.BDDPackage;
