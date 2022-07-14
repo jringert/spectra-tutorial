@@ -2,7 +2,9 @@
 
 In this module we will use the API to generate counter-strategies for unrealizable specifications.
 
-[![Watch the video](https://img.youtube.com/vi/Zu-EL3fSeIM/hqdefault.jpg)](https://www.youtube.com/watch?v=Zu-EL3fSeIM&list=PLGyeoukah9Nbx1QquUmZGdLulFZIsiRlZ&index=13)
+We will then create console applications with all dependencies packaged to run the Java/Spectra process externally.
+
+[![Watch the video](https://img.youtube.com/vi/5qf3U-nE-Hs/hqdefault.jpg)](https://www.youtube.com/watch?v=5qf3U-nE-Hs&list=PLGyeoukah9Nbx1QquUmZGdLulFZIsiRlZ&index=22)
 
 
 ## More
