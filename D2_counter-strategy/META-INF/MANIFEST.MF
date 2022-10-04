@@ -3,7 +3,6 @@ Bundle-ManifestVersion: 2
 Bundle-Name: D2_counter-stragegy
 Bundle-SymbolicName: D2_counter-stragegy
 Bundle-Version: 1.0.0.qualifier
-Bundle-RequiredExecutionEnvironment: JavaSE-17
 Automatic-Module-Name: D2.counter.stragegy
 Export-Package: counterstrategy
 Require-Bundle: tau.smlab.syntech.Spectra,
@@ -21,4 +20,5 @@ Require-Bundle: tau.smlab.syntech.Spectra,
  tau.smlab.syntech.games;bundle-version="1.0.0",
  tau.smlab.syntech.games.strategy.MAAprinter;bundle-version="1.0.0",
  tau.smlab.syntech.cores;bundle-version="1.0.0",
- tau.smlab.syntech.games.gr1;bundle-version="1.0.0"
+ tau.smlab.syntech.games.gr1;bundle-version="1.0.0",
+ tau.smlab.syntech.games.gr1.wellseparation;bundle-version="1.0.0"
