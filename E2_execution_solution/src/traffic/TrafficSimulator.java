@@ -57,7 +57,7 @@ public class TrafficSimulator extends JComponent {
 					inputs.put("carB", "false");
 
 					// controller synthesized with Spectra plug-ins versions >= 1.0.0.202210...
-					ControllerExecutor executor = new ControllerExecutor(new BasicJitController(), "out/jit", "TrafficE2");
+					executor = new ControllerExecutor(new BasicJitController(), "out/jit", "TrafficE2");
 					executor.initState(inputs);
 
 					greenA = Boolean.parseBoolean(executor.getCurrValue("greenA"));
