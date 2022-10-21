@@ -14,7 +14,7 @@ import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
 import tau.smlab.syntech.controller.executor.ControllerExecutor;
-import tau.smlab.syntech.controller.jit.BasicJitController;
+import tau.smlab.syntech.games.controller.jits.BasicJitController;
 
 public class TrafficSimulator extends JComponent {
 
@@ -56,8 +56,8 @@ public class TrafficSimulator extends JComponent {
 					inputs.put("carA", "true");
 					inputs.put("carB", "false");
 
-					// Instantiate a new controller executor
-					executor = new ControllerExecutor(new BasicJitController(), "out/");
+					// controller synthesized with Spectra plug-ins versions >= 1.0.0.202210...
+					ControllerExecutor executor = new ControllerExecutor(new BasicJitController(), "out/jit", "TrafficE2");
 					executor.initState(inputs);
 
 					greenA = Boolean.parseBoolean(executor.getCurrValue("greenA"));

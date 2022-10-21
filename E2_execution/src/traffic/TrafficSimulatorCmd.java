@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.Scanner;
 
 import tau.smlab.syntech.controller.executor.ControllerExecutor;
-import tau.smlab.syntech.controller.jit.BasicJitController;
+import tau.smlab.syntech.games.controller.jits.BasicJitController;
 
 public class TrafficSimulatorCmd {
 
@@ -15,7 +15,8 @@ public class TrafficSimulatorCmd {
         Scanner in = new Scanner(System.in);
         
 		// Instantiate a new controller executor
-		ControllerExecutor executor = new ControllerExecutor(new BasicJitController(), "out/");
+		// controller synthesized with Spectra plug-ins versions >= 1.0.0.202210...
+		ControllerExecutor executor = new ControllerExecutor(new BasicJitController(), "out/jit", "TrafficE2");
 
 		boolean iniState = true;
 		while (true) {

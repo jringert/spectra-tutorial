@@ -2,6 +2,8 @@
 
 In this module we will use synthesized controllers in different Java applications.
 
+The code is written to work with symbolic JIT controllers: ´Spectra -> Synthesize Just-In-Time Symbolic Controller´.
+
 [![Watch the video](https://img.youtube.com/vi/Zu-EL3fSeIM/hqdefault.jpg)](https://www.youtube.com/watch?v=Zu-EL3fSeIM&list=PLGyeoukah9Nbx1QquUmZGdLulFZIsiRlZ&index=13)
 
 
