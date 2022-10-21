@@ -30,4 +30,4 @@ predicate fix (Coord c):
 gar alwEv p2;
 gar alwEv p3;
 
-gar pBecomesTrue_betweenQandR(p1, p2, p3);
+gar P_becomes_true_between_Q_and_R(p1, p2, p3);

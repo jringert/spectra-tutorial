@@ -10,8 +10,8 @@ env boolean carB;
 
 gar alw !(greenA & greenB);
 
-gar pRespondsToS(carA, greenA);
-gar pRespondsToS(carB, greenB);
+gar S_responds_to_P_globally(greenA, carA);
+gar S_responds_to_P_globally(greenB, carB);
 
 asm alwEv ONCE (HISTORICALLY (carA));
 
@@ -20,4 +20,4 @@ gar alw greenA -> PREV(greenB);
 // Extend specification TrafficA3.spectra 
 // Add an assumption that carA is always eventually followed by carB (use the pattern pRespondsToS).
 
-asm pRespondsToS(carA, carB);
+asm S_responds_to_P_globally(carB, carA);

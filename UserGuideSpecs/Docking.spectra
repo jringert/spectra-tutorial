@@ -13,4 +13,4 @@ gar alw (dockRequest SINCE ready) -> next(ready);
  
 gar alwEv ready;
  
-gar pRespondsToS(dockRequest, docking);
+gar S_responds_to_P_globally(docking, dockRequest);

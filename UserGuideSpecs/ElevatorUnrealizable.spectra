@@ -14,8 +14,8 @@ gar moveOneFloorAtATime:
 	(next(elevatorLocation) = elevatorLocation-1);
     	
 gar eventuallyHandleOpenRequests:
-  pRespondsToS(request != elevatorLocation,
-                             request=elevatorLocation);
+  S_responds_to_P_globally(request  = elevatorLocation, 
+						   request != elevatorLocation);
 
 // assumption to fix unrealizability
 //asm maintainRequestsIfNotAnswered:

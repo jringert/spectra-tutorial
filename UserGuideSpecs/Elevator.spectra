@@ -17,14 +17,14 @@ asm alw elevatorLocation != request -> next(request) = request;
  
 // instantiate response pattern for eventually reaching the 
 // requested floor
-asm pRespondsToS(requestedUp & command = UP, 
-                           elevatorLocation = request);
-asm pRespondsToS(requestedDown & command = DOWN, 
-                           elevatorLocation = request);
+asm S_responds_to_P_globally(elevatorLocation = request,
+							requestedUp & command = UP);
+asm S_responds_to_P_globally(elevatorLocation = request, 
+							requestedDown & command = DOWN);
  
 asm moveRightDirection:
   alw (command=UP -> next(elevatorLocation) >= elevatorLocation) &
 	(command=DOWN -> next(elevatorLocation) <= elevatorLocation);
     	
 gar eventuallyHandleOpenRequests:
-  pRespondsToS(openRequest, request=elevatorLocation);
+  S_responds_to_P_globally(request=elevatorLocation, openRequest);
