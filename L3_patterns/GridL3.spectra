@@ -1,6 +1,6 @@
 import "DwyerPatterns.spectra"
 
-spec GridL2
+spec GridL3
 
 define upper:=20;
 
