@@ -1,8 +1,8 @@
 import "DwyerPatterns.spectra"
 
-spec GridL3
+spec GridL4
 
-define upper:=20;
+define upper:=8;
 
 type Coord = Int(0..upper);
 env Coord[2] rob;
@@ -26,8 +26,7 @@ predicate minusOne (Coord c):
 predicate fix (Coord c):
  next(c)=c;
 
+gar trig [true]* [!p1]{20} |=> [false];
 
 gar alwEv p2;
 gar alwEv p3;
-
-gar P_becomes_true_between_Q_and_R(p1, p2, p3);
