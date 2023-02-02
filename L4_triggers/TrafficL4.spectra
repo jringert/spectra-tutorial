@@ -6,10 +6,8 @@ sys boolean greenB;
 env boolean carA;
 env boolean carB;
 
-asm alwEv carA;
-asm alwEv carB;
+asm trig [true]* [carA] |=> [true]{0, 3} [carB];
 
-gar alw !(greenA & greenB);
+gar trig [true]* [greenA & greenB] |=> [false];
 
-gar trig [true]* [carA & !greenA]{4} |=> [greenA];
-gar trig [true]* [carB & !greenB]{4} |=> [greenB];
+gar trig [true]* [carA & !greenA]{4} |=> [greenA]+ [!greenA] [greenB];
