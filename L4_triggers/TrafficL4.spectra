@@ -7,7 +7,7 @@ env boolean carA;
 env boolean carB;
 
 asm trig [true]* [carA] |=> [true]{0, 3} [carB];
-
+ 
 gar trig [true]* [greenA & greenB] |=> [false];
 
-gar trig [true]* [carA & !greenA]{4} |=> [greenA]+ [!greenA] [greenB];
+gar trig [true]* [carA & !greenA]{4} |=> [greenA];

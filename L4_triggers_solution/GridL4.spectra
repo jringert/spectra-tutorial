@@ -26,5 +26,7 @@ predicate minusOne (Coord c):
 predicate fix (Coord c):
  next(c)=c;
 
+gar trig [true]* [!p1]{20} |=> [false];
+
 gar alwEv p2;
 gar alwEv p3;
