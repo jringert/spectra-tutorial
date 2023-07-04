@@ -5,7 +5,7 @@ import java.util.List;
 
 import tau.smlab.syntech.bddgenerator.BDDGenerator;
 import tau.smlab.syntech.bddgenerator.BDDGenerator.TraceInfo;
-import tau.smlab.syntech.cores.domainagnostic.AbstractDdmin;
+import tau.smlab.syntech.checks.ddmin.AbstractDdmin;
 import tau.smlab.syntech.cores.util.RealizabilityCheck;
 import tau.smlab.syntech.gameinput.model.GameInput;
 import tau.smlab.syntech.gameinputtrans.TranslationProvider;
