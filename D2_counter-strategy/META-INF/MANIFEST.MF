@@ -21,4 +21,5 @@ Require-Bundle: tau.smlab.syntech.Spectra,
  tau.smlab.syntech.games.strategy.MAAprinter;bundle-version="1.0.0",
  tau.smlab.syntech.cores;bundle-version="1.0.0",
  tau.smlab.syntech.games.gr1;bundle-version="1.0.0",
- tau.smlab.syntech.games.gr1.wellseparation;bundle-version="1.0.0"
+ tau.smlab.syntech.games.gr1.wellseparation;bundle-version="1.0.0",
+ tau.smlab.syntech.checks;bundle-version="1.0.0"
