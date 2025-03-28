@@ -1,4 +1,4 @@
-spec TrafficA3_repaired
+spec TrafficA3_repaired_gar
 
 sys boolean greenA;
 sys boolean greenB;

@@ -1,4 +1,4 @@
-spec TrafficL2a
+spec TrafficA2a
 
 sys boolean greenA;
 sys boolean greenB;

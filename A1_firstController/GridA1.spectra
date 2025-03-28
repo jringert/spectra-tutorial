@@ -1,4 +1,4 @@
-spec GridL2
+spec GridA1
 
 env Int(0..20) robX;
 env Int(0..20) robY;

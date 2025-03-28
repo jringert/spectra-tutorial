@@ -1,5 +1,3 @@
-import "DwyerPatterns.spectra"
-
 spec GridL4
 
 define upper:=8;
